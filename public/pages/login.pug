@@ -1,0 +1,16 @@
+html
+  head  
+    title #{title}
+    link(rel='stylesheet', href='../css/styles.css')
+  body
+    h1 User Registration
+    div
+      label(for="username") Username:
+      input(type="text", id="username", name="username")
+    div
+      label(for="password") Password:
+      input(type="text", id="password", name="password")
+    div
+      button(type="button", id="login") Login
+      button(type="button", id="register") Register
+  script(src="../js/login.js")

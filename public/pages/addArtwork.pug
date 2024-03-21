@@ -1,0 +1,28 @@
+html
+  head  
+    title #{title}
+    link(rel='stylesheet', href='../css/styles.css')
+  body
+    include ./header
+    h1 #{title} 
+    br
+    label(for="title")="Title: " 
+    input(type="textbox", name="title", id="title", style="border-radius: 9px;")
+    br
+    label(for="year")="Year: " 
+    input(type="textbox", name="year", id="year", style="border-radius: 9px;")
+    br
+    label(for="category")="Category: " 
+    input(type="textbox", name="category", id="category", style="border-radius: 9px;")
+    br
+    label(for="medium")="Medium: " 
+    input(type="textbox", name="medium", id="medium", style="border-radius: 9px;")
+    br
+    label(for="description")="Description: " 
+    input(type="textbox", name="description", id="description", style="border-radius: 9px;")
+    br
+    label(for="poster")="Poster: " 
+    input(type="textbox", name="poster", id="poster", style="border-radius: 9px;")
+    br
+    button(type="button", id="addArtwork") Add Artwork
+    script(src="../js/addArtwork.js")

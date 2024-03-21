@@ -1,0 +1,40 @@
+html
+	head  
+		title #{title}
+		link(rel='stylesheet', href='../css/styles.css')
+	body
+		include ./header
+		- var isArtist = data.isArtist
+		div#main
+			h1 Welcome #{data.username}!
+			p Artists you are following: 
+			each artwork in artworks 
+				li
+					a(href="/artist/" + artwork._id) #{artwork.Artist}
+				br
+			p Artworks you have liked: 
+			each artwork in artworksLiked
+				li 
+					a(href=`/artworks/${artwork._id}`) #{artwork.Title} 
+					button(type="button", onclick=`remLike('${artwork._id}')`) Delete
+				br
+			p Artworks you have reviewed: 
+			each artwork in artworksReviewed
+				li 
+					a(href=`/artworks/${artwork._id}`) #{artwork.Title}
+				br
+			p Your reviews: 
+			each review in reviews 
+				li #{review.reviewText} 
+					button(type="button", onclick=`remReview('${review.artworkId}', '${review.reviewText}')`) Delete
+			if !isArtist
+				p Your account type is: Patron
+			else 
+				p Your account type is: Artist
+			button(type="button", id="switchAccountType") Switch account type
+			p Your followers (#{followers.length}): 
+			each follower in followers 
+				li #{follower.username}
+		script. 
+			let isArtistValue = #{data.isArtist}
+		script(src="../js/profile.js")

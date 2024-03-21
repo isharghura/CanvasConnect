@@ -1,0 +1,24 @@
+html
+  head  
+    title #{title}
+    link(rel='stylesheet', href='../css/styles.css')
+  body
+    include ./header
+    h1 #{title} 
+    p Artworks by #{title}:
+    each artwork in artworks 
+      a(href=`/artworks/${artwork._id}`) #{artwork.Title}
+      br
+    p Workshops hosted by #{title}: 
+    each workshop in workshops 
+      li #{workshop} 
+        button(type="button", id="enroll", onclick=`enrollInWorkshop('${workshop}')`) Enroll
+
+    p #{title}'s followers (#{followers.length}): 
+      each follower in followers 
+        li #{follower.username}
+    button(type="button", id="followBtn") Follow
+    button(type="button", id="unfollowBtn") Unfollow
+    script. 
+        let artworkId = '#{artworkId}';
+    script(src="../js/artist.js")

@@ -1,0 +1,30 @@
+head
+  title #{title}
+  link(rel='stylesheet', href='../css/styles.css')
+body
+  include ./header
+  br 
+  h1 #{title}
+  p Artist: 
+    a(href=`/artist/${artwork._id}`) #{artwork.Artist}
+  p Year: #{artwork.Year} 
+  p Category: 
+    a(href=`/artworks/category/${artwork.Category}`) #{artwork.Category}
+  p Medium: 
+    a(href=`/artworks/medium/${artwork.Medium}`) #{artwork.Medium}
+  p Description: #{artwork.Description} 
+  p Likes: #{artwork.likes.length} 
+    button(type="button", id="likes") Like
+    button(type="button", id="dislike") Dislike
+  label(for="review")="Review this artwork: " 
+  input(type="textbox", name="review", id="review", style="border-radius: 9px;")
+  button(type="button", id="addReview") Send
+  p Reviews:
+  each review in artwork.reviews 
+    p #{review.review} - #{review.username}
+      if review.username == user.username
+        button(type="button", onclick=`remReview('${review.review}')`) Delete
+  img(src=artwork.Poster, alt=artwork.Title, style="max-width: 100%, height:auto")
+  script. 
+    let artworkId = '#{artwork._id}';
+  script(src="../js/artwork.js")

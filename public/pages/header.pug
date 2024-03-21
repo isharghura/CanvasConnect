@@ -1,0 +1,14 @@
+div#header
+    a(href="/home") Home
+    | 
+    a(href="/artworks") Artworks
+    | 
+    a(href="/profile") Profile
+    | 
+    if data.isArtist
+        | 
+        a(href="addWorkshop") Add Workshop
+        | 
+        a(href="addArtwork") Add Artwork
+    | 
+    a(href="/logout") Logout

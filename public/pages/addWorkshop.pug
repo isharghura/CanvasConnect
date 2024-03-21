@@ -1,0 +1,12 @@
+html
+  head  
+    title Add Workshp
+    link(rel='stylesheet', href='../css/styles.css')
+  body
+    include ./header
+    h1 Add Workshop
+    br
+    label(for="title")="Title of Workshop: " 
+    input(type="textbox", name="title", id="title", style="border-radius: 9px;")
+    button(type="button", id="addWorkshop") Add Workshop
+    script(src="../js/addWorkshop.js")

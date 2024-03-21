@@ -1,0 +1,26 @@
+head
+  title #{title}
+  link(rel='stylesheet', type='text/css', href='/css/styles.css')
+body
+  include ./header
+  br 
+  br 
+  div#searchBar
+    label(for="title")="Title: " 
+    input(type="textbox", name="title", id="title", style="border-radius: 9px;") 
+    label(for="artist")="Artist name: " 
+    input(type="textbox", name="artist", id="artist", style="border-radius: 9px;") 
+    label(for="category")="Category: " 
+    input(type="textbox", name="category", id="category", style="border-radius: 9px;") 
+    button(type="button", id="search") Search
+  br
+  each artwork in artworks
+    a(href=`/artworks/${artwork._id}`) #{artwork.Title}
+    br
+  br
+  br
+  if current > 1
+    button(type="button", onclick=`location.href='/artworks?page=${current - 1}'`) Previous
+  if current < totPages
+    button(type="button", onclick=`location.href='/artworks?page=${parseInt(current) + 1}'`) Next
+  script(src="/js/artworks.js")

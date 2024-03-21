@@ -1,0 +1,11 @@
+html
+	head  
+		title #{title}
+		link(rel='stylesheet', href='../css/styles.css')
+	body
+		include ./header
+		div#main
+			h1 Welcome to the Open Gallery Home Page, #{username}!
+			p Your notifications: 
+			each notification in notifications 
+				li #{notification}
